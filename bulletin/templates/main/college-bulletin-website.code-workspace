@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"name": "college-bulletin-website",
+			"path": "../../../.."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "projectimages"
+	}
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Event</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+        .add-event-form {
+            width: 50%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: white;
+        }
+        .add-event-form input, .add-event-form button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="add-event-form">
+        <h2>Add New Event</h2>
+        <form id="eventForm">
+            <input type="text" id="eventTitle" placeholder="Event Title" required>
+            <input type="datetime-local" id="eventStart" placeholder="Start Date" required>
+            <input type="datetime-local" id="eventEnd" placeholder="End Date" required>
+            <button type="submit">Add Event</button>
+        </form>
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="{% url 'calendar' %}">Back to Calendar</a>
+        </div>
+    </div>
+    <script>
+        document.getElementById('eventForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            var eventTitle = document.getElementById('eventTitle').value;
+            var eventStart = document.getElementById('eventStart').value;
+            var eventEnd = document.getElementById('eventEnd').value;
+
+            if (eventTitle && eventStart && eventEnd) {
+                var newEvent = {
+                    title: eventTitle,
+                    start: eventStart,
+                    end: eventEnd
+                };
+
+                var events = JSON.parse(localStorage.getItem('events')) || [];
+                events.push(newEvent);
+                localStorage.setItem('events', JSON.stringify(events));
+
+                // Reset form fields
+                document.getElementById('eventTitle').value = '';
+                document.getElementById('eventStart').value = '';
+                document.getElementById('eventEnd').value = '';
+                
+                alert('Event added successfully!');
+
+                // Redirect back to the calendar page
+                window.location.href = "{% url 'calendar' %}";
+
+            }
+        });
+    </script>
+</body>
+</html>

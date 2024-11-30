@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CollegeBulletin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav>
+        <div class="Logo">
+            <img src="/Users/anujkumar/Desktop/college-bulletin-website/college_bulletin/miniproject/templates/projectimages/acharya-logo.png"alt="">
+        </div>
+        <ul id="menuList">
+            <li><a href="">Chat</a></li>
+            <li><a href="">Placement</a></li>
+            <li><a href="">Event</a></li>
+           
+        </ul>
+        <div clss="menu-icon">
+            <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
+        </div>
+    </nav>
+    <div class="title-header">
+        <h1>College Bulletin</h1>
+    </div>
+    <div class="container">
+
+        <h1 class="heading">College News</h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <img src="projectimages/presentation.jpg" alt="" width="45px" height="45px">
+                <h3>Presentation</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+
+            <div class="box">
+                <img src="projectimages/cultural.png" alt="">
+                <h3>cultural Event</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+
+            <div class="box">
+                <img src="projectimages/Placement.jpg" alt="">
+                <h3>Placement</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+
+            <div class="box">
+                <img src="projectimages/sportss.jpeg" alt="">
+                <h3>Sports Event</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+
+            <div class="box">
+                <img src="projectimages/habba .jpeg" alt="">
+                <h3>Habba Event</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+
+            <div class="box">
+                <img src="projectimages/steigen.jpeg" alt="">
+                <h3>Staigen Event</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+
+            <div class="box">
+                <img src="projectimages/Placement.jpg" alt="">
+                <h3>Placement</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+
+            <div class="box">
+                <img src="projectimages/sportss.jpeg" alt="">
+                <h3>Sports Event</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+
+        </div>
+
+    </div>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 College Bulletin. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        let menuList = document.getElementById("menuList")
+        menuList.style.maxHeight = "0px";
+        function toggleMenu() {
+            if (menuList.style.maxheight == "0px") {
+                menuList.style.maxHeight = "300px";
+            }
+            else {
+                menuList.style.maxHeight = "0px";
+            }
+        }
+    </script>
+    <script src="https://kit.fontawesome.com/f8e1a90484.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
