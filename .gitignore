@@ -32,3 +32,6 @@ coverage/
 # Ignore temporary files
 *.tmp
 *.swp
+
+# Add the file to .gitignore
+echo "client_secret_286034055187-obobc9opadhrimr9ls3tb7ohssh3psse.apps.googleusercontent.com.json" >> .gitignore
