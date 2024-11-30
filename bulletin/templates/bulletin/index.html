@@ -1,10 +1,14 @@
+{% extends "bulletin/base.html" %}
+{% load static %}
+{% block title %}Campus Connect{% endblock %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width", initial-scale="1.0">
-    <title>CollegeBulletin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Connect</title>
     <style>
         /* Reset styles */
         * {
@@ -193,20 +197,20 @@
 <body>
     <nav>
         <div class="Logo">
-            <img src="https://drive.google.com/uc?export=view&id=1x7VIvuatreSbpasWOOokf_NM9uZtX4k8" alt="Logo">
+            <img src="{% static 'bulletin/images/logo.jpg' %}" alt="Logo">
         </div>
         <ul id="menuList">
-            <li><a href="chat/">Chat</a></li>
-            <li><a href="placements/">Placement</a></li>
-            <li><a href="add_event/">Event</a></li>
-            <li><a href="">Contact Us</a></li>
+            <li><a href="{% url 'rooms' %}">Chat</a></li>
+            <li><a href="#">Placement</a></li>
+            <li><a href="{% url 'add_event' %}">Event</a></li>
+            <li><a href="#">Contact Us</a></li>
         </ul>
         <div class="menu-icon">
             <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
         </div>
     </nav>
     <div class="title-header">
-        <h1>College Bulletin</h1>
+        <h1>Campus Connect</h1>
     </div>
     <div class="container">
 
@@ -215,43 +219,43 @@
         <div class="box-container">
 
             <div class="box">
-                <img src="https://drive.google.com/uc?export=view&id=15B3dyBJ7-TUOZYlE31kv0kRueKcAMjyN" alt="Presentation">
+                <img src="{% static 'bulletin/images/presentation.jpg' %}" alt="Presentation">
                 <h3>Presentation</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
                 <a href="#" class="btn">read more</a>
             </div>
 
             <div class="box">
-                <img src="https://drive.google.com/uc?export=view&id=1A0qOBxUjbAG3_CSF2MIZpZVbS_2xAiIb" alt="Cultural Event">
+                <img src="{% static 'bulletin/images/cultural.png'%}" alt="Cultural Event">
                 <h3>Cultural Event</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
                 <a href="#" class="btn">read more</a>
             </div>
 
             <div class="box">
-                <img src="https://drive.google.com/uc?export=view&id=1AgsUm-LJqvqR0zj9s2W8bpOzkO8YDLF0" alt="Placement">
+                <img src="{% static 'bulletin/images/Placement.jpg'%}" alt="Placement">
                 <h3>Placement</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
                 <a href="#" class="btn">read more</a>
             </div>
 
             <div class="box">
-                <img src="https://drive.google.com/uc?export=view&id=1EcBVmWC60sMz0TKzO1cOs9YaEpoeVjrZ" alt="Sports Event">
+                <img src="{% static 'bulletin/images/sportss.jpeg'%}" alt="Sports Event">
                 <h3>Sports Event</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
                 <a href="#" class="btn">read more</a>
             </div>
 
             <div class="box">
-                <img src="https://drive.google.com/uc?export=view&id=18RDlLVgq_2nUMk1gAx3NpVtr4pMSip5q" alt="Habba Event">
+                <img src="{% static 'bulletin/images/habba.jpeg'%}" alt="Habba Event">
                 <h3>Habba Event</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
                 <a href="#" class="btn">read more</a>
             </div>
 
             <div class="box">
-                <img src="https://drive.google.com/uc?export=view&id=1PozANtxqrVsDXj_Zep0iVzuXIVso3VKu" alt="Staigen Event">
-                <h3>Staigen Event</h3>
+                <img src="{% static 'bulletin/images/steigen.jpeg'%}" alt="Technical Event">
+                <h3>Technical Event</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
                 <a href="#" class="btn">read more</a>
             </div>
@@ -261,7 +265,7 @@
     </div>
     <footer>
         <div class="footer-content">
-            <p>&copy; 2024 College Bulletin. All rights reserved.</p>
+            <p>&copy; 2024 Campus Connect. All rights reserved.</p>
         </div>
     </footer>
 
@@ -277,3 +281,6 @@
             }
         }
     </script>
+</body>
+</html>
+{% endblock %}

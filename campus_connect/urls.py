@@ -1,11 +1,12 @@
 # campus_connect/urls.py
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
 from bulletin import views as bulletin_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', bulletin_views.home, name="home"),
+    path('accounts/',include('allauth.urls')),
     path('login/', bulletin_views.login_view, name='login'),
     path('logout/', bulletin_views.custom_logout, name='custom_logout'),
     path('signup/', bulletin_views.signup, name="signup"),

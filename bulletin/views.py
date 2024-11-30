@@ -1,4 +1,78 @@
-# main/views.py
+# bulletin/views.py
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login, logout
+from django.http import JsonResponse
+from django.contrib import messages
+from .forms import SignupForm
+from .models import Placement, Room, Message, Event
+
+def home(request):
+    return render(request, 'bulletin/index.html')
+
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('home')  # Redirect to home page after successful login
+        else:
+            messages.error(request, 'Invalid username or password.')
+    
+    return render(request, 'bulletin/login.html')
+
+def custom_logout(request):
+    logout(request)
+    return redirect('home')  # Redirect to home page after logout
+
+def signup(request):
+    if request.method == 'POST':
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login')  # Redirect to login page after successful signup
+    else:
+        form = SignupForm()
+    return render(request, 'bulletin/signup.html', {'form': form})
+
+def rooms(request):
+    rooms = Room.objects.all()
+    return render(request, 'bulletin/rooms.html', {"rooms": rooms})
+
+def room(request, slug):
+    room_name = Room.objects.get(slug=slug).name
+    messages = Message.objects.filter(room=Room.objects.get(slug=slug))
+    return render(request, 'bulletin/room.html', {"room_name": room_name, "slug": slug, 'messages': messages})
+
+def add_event(request):
+    if request.method == 'POST':
+        title = request.POST.get('eventTitle')
+        start = request.POST.get('eventStart')
+        end = request.POST.get('eventEnd')
+        Event.objects.create(title=title, start=start, end=end)
+        return redirect('calendar')
+
+    return render(request, 'bulletin/add_event.html')
+
+def events_data(request):
+    events = Event.objects.all().values('title', 'start', 'end')
+    events_list = list(events)
+    return JsonResponse(events_list, safe=False)
+
+def calendar(request):
+    return render(request, 'bulletin/calendar.html')
+
+def placement_list(request):
+    placements = Placement.objects.all().values('company_name', 'job_title', 'description', 'created_at', 'updated_at')
+    context = {
+        'placements': list(placements)
+    }
+    return render(request, 'bulletin/placement.html', context)
+
+
+'''# main/views.py
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.http import JsonResponse
@@ -19,7 +93,7 @@ def room(request,slug):
     return render(request, "room.html",{"room_name":room_name,"slug":slug,'messages':messages})
 
 def home(request):
-    return render(request, 'main/index.html')
+    return render(request, 'bulletin/home.html')
 
 def calendar(request):
     return render(request, 'calendar.html')
@@ -109,3 +183,4 @@ def custom_logout(request):
 
 # def calendar(request):
 #     return render(request, 'calendar.html')
+'''
