@@ -1,0 +1,34 @@
+# Ignore virtual environment directory
+venv/
+
+# Ignore log files
+*.log
+
+# Ignore build directories
+dist/
+build/
+out/
+
+# Ignore environment variable files
+.env
+.env.local
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE-specific files
+.vscode/
+.idea/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore coverage reports
+coverage/
+*.lcov
+
+# Ignore temporary files
+*.tmp
+*.swp
