@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'crispy_forms',
+    'crispy_bootstrap4', #added 
 ]
 
 SOCIALACCOUNT_PROVIDERS = {
@@ -160,13 +162,16 @@ USE_TZ = True
 AUTH_USER_MODEL = 'auth.User'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
-
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend', #using django backend
     'allauth.account.auth_backends.AuthenticationBackend',#also using allauth backend
 )
-
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'

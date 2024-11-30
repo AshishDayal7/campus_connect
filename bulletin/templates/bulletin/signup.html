@@ -1,5 +1,26 @@
+{% extends "bulletin/base.html" %}
 {% load static %}
-<!DOCTYPE html>
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container vh-100 d-flex justify-content-center align-items-center">
+    <div class="content-section">
+        <form method ="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Join Today</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Sign Up</button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">Already have an account? <a class="ml-2" href="{% url 'login' %}">Sign in</a></small>
+        </div><!--ml - margin left and mb - margin bottom -->
+    </div>
+</div>
+{% endblock content %}
+<!--<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -41,4 +62,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
-</html>
+</html>-->
