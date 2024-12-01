@@ -33,24 +33,24 @@ SITE_ID=2
 
 INSTALLED_APPS = [
     'daphne',
-    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bulletin',
+    'bulletin', #app 
+    'announcements',#app
     'django.contrib.sites',
-    'allauth',
+    'allauth',# for google login
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
-    'crispy_forms',
-    'crispy_bootstrap4', #added 
+    'crispy_forms',#added 
+    'crispy_bootstrap4', 
 ]
 
-SOCIALACCOUNT_PROVIDERS = {
+SOCIALACCOUNT_PROVIDERS = { #for google login 
     'google': {
         'SCOPE': [
             'profile',
@@ -72,8 +72,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware'
 ]
-
-# campus_connect/settings.py
 
 ROOT_URLCONF = 'campus_connect.urls'
 
