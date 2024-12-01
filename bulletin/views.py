@@ -2,7 +2,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.http import JsonResponse
-from .models import Placements, Event #removed room n messages 
+from .models import Placements, Event #removed room n messages- chats
 
 def home(request):
     return render(request, 'bulletin/index.html')
