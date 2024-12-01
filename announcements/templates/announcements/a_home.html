@@ -1,4 +1,16 @@
 {% extends "bulletin/base.html" %}
-{% block content %}
-
-{% endblock content %}
+{% block announcement %}
+<h1>Announcements</h1>
+{% for announcement in announcements %}
+<article class="media content-section">
+    <div class="media-body">
+        <div class="article-metadata">
+            <a class="mr-2" href="#">{{ announcement.author }}</a>
+            <small class="text-muted">{{ announcement.date_posted|date:"F d, Y" }}</small>
+        </div>
+        <h2><a class="article-title" href="#">{{ announcement.title }}</a></h2>
+        <p class="article-content">{{ announcement.content }}</p>
+    </div>
+</article>
+{% endfor %}
+{% endblock announcement %}

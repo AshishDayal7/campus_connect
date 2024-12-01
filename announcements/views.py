@@ -8,3 +8,6 @@ def a_home(request):
         'announcements': Announcement.objects.all()
     }
     return render(request, 'announcements/a_home.html', context)
+
+def a_profile(request):
+    return render(request, 'announcements/a_profile.html')
