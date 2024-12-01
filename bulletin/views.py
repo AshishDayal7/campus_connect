@@ -10,21 +10,7 @@ from .models import Placement, Room, Message, Event
 def home(request):
     return render(request, 'bulletin/index.html')
 
-def signup(request):
-    if request.method == 'POST':
-        form = SignupForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=password)
-            login(request, user)
-            return redirect('home')
-    else:
-        form = SignupForm()
-    return render(request, 'bulletin/signup.html', {'form': form})
-
-def login_view(request):
+'''def login_view(request):
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
@@ -38,7 +24,10 @@ def login_view(request):
                 form.add_error(None, 'Invalid username or password')
     else:
         form = AuthenticationForm()
-    return render(request, 'bulletin/login.html', {'form': form})
+    return render(request, 'bulletin/login.html', {'form': form})'''
+
+def login_view(request):
+    return render(request, 'bulletin/login.html')
 
 
 def custom_logout(request):

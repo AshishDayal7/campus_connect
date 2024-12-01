@@ -9,7 +9,6 @@ urlpatterns = [
     path('accounts/',include('allauth.urls')),
     path('login/', bulletin_views.login_view, name='login'),
     path('logout/', bulletin_views.custom_logout, name='custom_logout'),
-    path('signup/', bulletin_views.signup, name="signup"),
     path("home/chat/", bulletin_views.rooms, name="rooms"),
     path('home/add_event/', bulletin_views.add_event, name='add_event'),
     path('calendar/', bulletin_views.calendar, name='calendar'),
