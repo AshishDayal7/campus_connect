@@ -1,3 +1,4 @@
+# models.py
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
@@ -5,6 +6,7 @@ from PIL import Image
 from django.urls import reverse
 import os
 from django.core.exceptions import ValidationError
+from datetime import timedelta
 
 class Announcement(models.Model):
     title = models.CharField(max_length=100)
@@ -15,28 +17,27 @@ class Announcement(models.Model):
     def __str__(self):
         return self.title
     
-    #for create view - to redirect |
     def get_absolute_url(self):
-        return reverse('announcement-detail',kwargs={'pk':self.pk}) 
+        return reverse('announcement-detail',kwargs={'pk':self.pk})
+
+    def is_expired(self):
+        """Check if announcement is older than 14 days"""
+        return timezone.now() - self.date_posted > timedelta(days=14)
 
     def clean(self):
-        # Get the start of the current day
+        # Check daily post limit
         today_start = timezone.now().replace(hour=0, minute=0, second=0, microsecond=0)
-        
-        # Count posts made by this user today
         today_posts = Announcement.objects.filter(
             author=self.author,
             date_posted__gte=today_start
         ).count()
 
-        # If user already has 4 posts today, raise error
-        if today_posts >= 4 and not self.pk:  # Check self.pk to allow editing existing posts
+        if today_posts >= 4 and not self.pk:
             raise ValidationError("You can only create 4 announcements per day.")
 
     def save(self, *args, **kwargs):
         self.clean()
         super().save(*args, **kwargs)
-    
 
 
 class Profile(models.Model):
