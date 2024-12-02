@@ -1,17 +1,45 @@
-{% extends "bulletin/base.html" %}
+{% extends "announcements/base.html" %}
+{% load static %}
 {% block announcement %}
-<h1>Announcements</h1>
-{% for announcement in announcements %}
-<article class="media content-section">
-    <img class="rounded-circle article-img" src="{{ announcement.author.profile.image.url }}">
-    <div class="media-body">
-        <div class="article-metadata">
-            <a class="mr-2" href="#">{{ announcement.author }}</a>
-            <small class="text-muted">{{ announcement.date_posted|date:"F d, Y" }}</small>
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="card text-black shadow" style="border-radius: 25px;">
+                    <div class="card-body p-md-5">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h1>Announcements</h1>
+                            <a href="{% url 'announcement-create' %}" class="btn btn-outline-secondary rounded-pill">
+                                <i class="fas fa-dove"></i> Announce here !
+                            </a>
+                        </div>
+                        
+                        {% for announcement in announcements %}
+                            <article class="card mb-4 border-0 shadow-sm">
+                                <div class="card-body">
+                                    <div class="media content-section d-flex">
+                                        <img class="rounded-circle me-3" src="{{ announcement.author.profile.image.url }}" style="width: 60px; height: 60px; object-fit: cover;">
+                                        <div class="media-body">
+                                            <div class="article-metadata mb-2">
+                                                <a class="text-decoration-none" href="#">{{ announcement.author }}</a>
+                                                <small class="text-muted ms-2">{{ announcement.date_posted|date:"F d, Y" }}</small>
+                                            </div>
+                                            <h2 class="h5"><a class="article-title text-decoration-none text-dark" href="{% url 'announcement-detail' announcement.id %}">{{ announcement.title }}</a></h2>
+                                            <p class="article-content mb-0">{{ announcement.content }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        {% empty %}
+                            <div class="text-center py-5">
+                                <img src="{% static 'bulletin/images/no new announcement.svg' %}" 
+                                     alt="No announcements" 
+                                     class="img-fluid mb-4" 
+                                     style="max-width: 70%">
+                                <h3 class="text-muted">No announcements available</h3>
+                                <p class="text-muted">Be the first one to make an announcement!</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
         </div>
-        <h2><a class="article-title" href="#">{{ announcement.title }}</a></h2>
-        <p class="article-content">{{ announcement.content }}</p>
-    </div>
-</article>
-{% endfor %}
 {% endblock announcement %}

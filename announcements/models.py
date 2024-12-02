@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from PIL import Image
+from django.urls import reverse
 import os
 from django.core.exceptions import ValidationError
 
@@ -13,6 +14,10 @@ class Announcement(models.Model):
 
     def __str__(self):
         return self.title
+    
+    #for create view - to redirect |
+    def get_absolute_url(self):
+        return reverse('announcement-detail',kwargs={'pk':self.pk}) 
 
     def clean(self):
         # Get the start of the current day
@@ -32,6 +37,8 @@ class Announcement(models.Model):
         self.clean()
         super().save(*args, **kwargs)
     
+
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.TextField(default='Hey there I am using campus connect!')
