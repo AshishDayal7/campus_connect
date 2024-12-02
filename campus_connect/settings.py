@@ -109,12 +109,8 @@ ASGI_APPLICATION = 'campus_connect.asgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'campus_connect',# The name of the database you created
-        'USER': 'postgres',# The username for your PostgreSQL database
-        'PASSWORD': '1234',# The password you set during PostgreSQL installation
-        'HOST': 'localhost',# Or your database server's IP address
-        'PORT': '5432',# Default PostgreSQL port
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',  # Path to the SQLite database file
     }
 }
 
