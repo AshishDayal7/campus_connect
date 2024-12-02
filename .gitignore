@@ -13,6 +13,8 @@ out/
 .env
 .env.local
 
+
+
 # Ignore OS-specific files
 .DS_Store
 Thumbs.db
@@ -42,5 +44,5 @@ media/
 
 # Except default images
 !media/default.png
-
-#pip install --q -r  requirements.txt --cache-dir .cache 
+#pip install --q -r  requirements.txt --cache-dir .cache .env
+.env
