@@ -61,13 +61,13 @@ class Fixture(models.Model):
         return f"{self.team1} vs {self.team2} - {self.sport.name}"
 
 class Result(models.Model):
-    fixture = models.OneToOneField(Fixture, on_delete=models.CASCADE)
+    fixture = models.OneToOneField(Fixture, on_delete=models.CASCADE, related_name='result')
+    team1_score = models.IntegerField()
+    team2_score = models.IntegerField()
     winner = models.CharField(max_length=100)
-    score = models.CharField(max_length=100)
 
     def __str__(self):
-        return f"{self.fixture} - Winner: {self.winner}"
-    
+        return f"{self.fixture} - {self.team1_score}:{self.team2_score}"
 
 
 

@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% load static %}
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        .hover-card {
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+    
+        .hover-card:hover {
+            background-color: #0d6efd; /* Bootstrap primary blue */
+            color: white;
+            transform: translateY(-5px); /* Subtle lift effect */
+        }
+    
+        .hover-card:hover .card-body h3,
+        .hover-card:hover .card-body p {
+            color: white; /* Ensure text remains visible on blue background */
+        }
+    </style>
+    
+    <title>About Us</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'bulletin/images/logo.jpg' %}" alt="Logo" height="45" width="45"> Acharya Institutes
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'placements' %}">Placements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'about' %}">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-light text-dark py-5" style="background-image: url({% static 'bulletin/images/acharya1.jpg' %}); background-size: cover; background-position: center;">
+        <div class="container text-center text-white">
+            <h1 class="display-4 fw-bold">Welcome to Our College</h1>
+            <p class="lead">Shaping future leaders through quality education, innovation, and holistic development.</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h2 class="fw-bold">Our Story</h2>
+                    <p>Founded in 1990, our college has been at the forefront of educational excellence. With a commitment to innovation and a focus on holistic development, we prepare our students to become future leaders and changemakers.</p>
+                    <p>Our campus is home to cutting-edge facilities, diverse student communities, and a supportive environment where everyone thrives.</p>
+                </div>
+                <div class="col-md-6">
+                    <img src="{% static 'bulletin/images/campus.jpg' %}" alt="Campus" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission, Vision, and Values Section -->
+    <section class="bg-warning text-white py-5">
+        <div class="container text-center">
+            <h2 class="fw-bold">Our Mission, Vision, and Values</h2>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <i class="bi bi-lightbulb-fill display-4"></i>
+                    <h4 class="mt-3">Mission</h4>
+                    <p>To empower students with knowledge, skills, and values for lifelong success.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="bi bi-binoculars-fill display-4"></i>
+                    <h4 class="mt-3">Vision</h4>
+                    <p>To be a globally recognized institution for academic and research excellence.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="bi bi-heart-fill display-4"></i>
+                    <h4 class="mt-3">Values</h4>
+                    <p>Integrity, Inclusivity, Innovation, and Excellence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="py-5">
+        <div class="container text-center">
+            <h2 class="fw-bold">Our Achievements</h2>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="card border-0 shadow hover-card">
+                        <div class="card-body">
+                            <h3 class="display-6">30+</h3>
+                            <p class="mb-0">Years of Excellence</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 shadow hover-card">
+                        <div class="card-body">
+                            <h3 class="display-6">5000+</h3>
+                            <p class="mb-0">Graduates</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 shadow hover-card">
+                        <div class="card-body">
+                            <h3 class="display-6">100+</h3>
+                            <p class="mb-0">Industry Partnerships</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="bg-light py-5">
+        <div class="container text-center">
+            <h2 class="fw-bold">What Our Students Say</h2>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <div class="blockquote">
+                        <p>"The best decision of my life! The faculty and facilities are outstanding, and the opportunities are endless."</p>
+                        <footer class="blockquote-footer">Jane Doe, Class of 2022</footer>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="blockquote">
+                        <p>"A nurturing environment that fosters growth and innovation. I'm proud to be an alumnus."</p>
+                        <footer class="blockquote-footer">John Smith, Class of 2021</footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2024 Campus Connect. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

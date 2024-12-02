@@ -14,4 +14,5 @@ urlpatterns = [
     path('technical/', bulletin_views.technical, name='technical'),
     path('cultural/', bulletin_views.cultural, name='cultural'),
     path('contact/', bulletin_views.contact, name='contact'),
+    path('about/', bulletin_views.about, name='about'),
 ]

@@ -47,12 +47,16 @@ def sports_view(request):
     selected_sport = request.GET.get('sport')
     fixtures = Fixture.objects.filter(sport__name=selected_sport) if selected_sport else []
     results = Result.objects.filter(fixture__sport__name=selected_sport) if selected_sport else []
+    
     return render(request, 'bulletin/sports.html', {
         'sports': sports,
         'fixtures': fixtures,
         'results': results,
         'selected_sport': selected_sport,
+        
     })
+
+    
 def technical(request):
     return render(request, 'bulletin/technical.html')
 
@@ -61,3 +65,6 @@ def cultural(request):
 
 def contact(request):
     return render(request, 'bulletin/contact.html')
+
+def about(request):
+    return render(request, 'bulletin/about.html')
