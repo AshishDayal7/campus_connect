@@ -7,6 +7,7 @@ from .models import Sport, Fixture, Result
 
 
 def home(request):
+    
     return render(request, 'bulletin/index.html')
 
 def login_view(request):
