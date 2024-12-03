@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>College Fest - Habba</title>
-    <!-- Load static template tag library -->
-    {% load static %}
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+{% extends "bulletin/base.html" %}
+
+{% block content %}
+{% load static %}
+{% block image %}
+<!-- Empty block to prevent base.html's image block from rendering -->
+{% endblock image %}
+
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -80,42 +75,9 @@
       }
 
     </style>
-  </head>
+  
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-warning ">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="{% url 'home' %}">
-            <img src="{% static 'bulletin/images/logo.jpg' %}" alt="Logo" height="45" width="45" />
-          </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="">Announcement</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'placements' %}">Placement</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'add_event' %}">Event</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+    
     <div class="container">
       <h1 class="text-center">Welcome to Habba - The Annual College Fest</h1>
       <p class="text-center">
@@ -264,12 +226,7 @@
         </div>
     </div>
 
-    <div class="footer">
-        <p>
-          &copy; 2024 Campus Connect. All Rights Reserved. |
-          
-        </p>
-      </div>
+   
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -285,3 +242,4 @@
     </script>
   </body>
 </html>
+{% endblock content %}

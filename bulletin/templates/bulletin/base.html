@@ -45,11 +45,14 @@
     </div>
 </nav>
 
-<div class="position-relative bg-dark text-white" style="background-image: url('{% static 'bulletin/images/technical.jpg' %}'); background-size: cover; background-position: center; height: 100vh;">
-    <div class="d-flex align-items-center justify-content-center h-100 bg-dark bg-opacity-50">
-        <h1 class="display-3">Welcome to Campus Connect</h1>
+
+    {% block image %}
+    <div class="position-relative bg-dark text-white" style="background-image: url('{% static 'bulletin/images/technical.jpg' %}'); background-size: cover; background-position: center; height: 100vh;">
+        <div class="d-flex align-items-center justify-content-center h-100 bg-dark bg-opacity-50">
+            <h1 class="display-3">Welcome to Campus Connect</h1>
+        </div>
     </div>
-</div>
+    {% endblock image %}
 
 <main class="container-fluid p-0">
   {% block content %}
