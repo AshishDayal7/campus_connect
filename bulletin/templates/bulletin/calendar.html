@@ -1,61 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Event Calendar</title>
     <!-- FullCalendar CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" rel="stylesheet">
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css"
+      rel="stylesheet"
+    />
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        .calendar-container {
-            width: 80%;
-            margin: auto;
-            padding: 20px;
-        }
-        .add-event-link {
-            text-align: center;
-            margin: 20px;
-        }
-        .add-event-link a {
-            text-decoration: none;
-            color: white;
-            background-color: #007bff;
-            padding: 10px 20px;
-            border-radius: 5px;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .calendar-container {
+        width: 80%;
+        margin: auto;
+        padding: 20px;
+      }
+      .add-event-link,
+      .home-link {
+        text-align: center;
+        margin: 20px;
+      }
+      .add-event-link a,
+      .home-link a {
+        text-decoration: none;
+        color: white;
+        background-color: #007bff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+      .add-event-link a:hover,
+      .home-link a:hover {
+        background-color: #0056b3;
+      }
+      .fc-left {
+        display: flex;
+        align-items: center;
+      }
+      .fc-left .home-link {
+        margin-right: 10px;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="calendar-container">
-        <div id="calendar"></div>
+      <div id="calendar"></div>
     </div>
-
     <div class="add-event-link">
-        <a href="{% url 'add_event' %}">Add New Event</a>
+      <a href="{% url 'add_event' %}">Add New Event</a>
     </div>
-
     <!-- FullCalendar and jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
     <script>
-        $(document).ready(function() {
-            // Initialize calendar
-            $('#calendar').fullCalendar({
-                editable: true,
-                events: JSON.parse(localStorage.getItem('events')) || [],
-                header: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'month,agendaWeek,agendaDay'
-                }
-            });
+      $(document).ready(function () {
+        // Initialize calendar
+        $("#calendar").fullCalendar({
+          editable: true,
+          events: JSON.parse(localStorage.getItem("events")) || [],
+          header: {
+            left: "homeButton prev,next today",
+            center: "title",
+            right: "month,agendaWeek,agendaDay",
+          },
+          customButtons: {
+            homeButton: {
+              text: "Home",
+              click: function () {
+                window.location.href = "{% url 'home' %}";
+              },
+            },
+          },
         });
+      });
     </script>
-</body>
+  </body>
 </html>

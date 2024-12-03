@@ -4,26 +4,54 @@
 {% block content %}
 <div class="container my-5">
     <div class="text-center mb-5">
-        <h1>College News</h1>
+        <h1 class="display-4">College News</h1>
     </div>
+    <section class="max-width:100%" style="background-color: #eee;">
+        <div class="container-fluid py-2" style="max-width: 98%;">
+        <main role="main" class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="container my-3">
+                    <div class="row bg-light text-black p-3 rounded">
+                        <div class="col-md-5 d-flex flex-column align-items-center">
+                            <h5>Announcements</h5>
+                            <a href="announcements/" class="btn btn-outline-secondary rounded-pill mt-2 ">Go to Announcements  <i class="ml-3 fas fa-dove"></i></a>
+                        </div>
+                        <div class="col-md-2 d-flex justify-content-center align-items-center">
+                            <div class="border-end border-light" style="height: 50px;"></div>
+                        </div>
+                        <div class="col-md-5 d-flex flex-column align-items-center">
+                            <h5>Events</h5>
+                            <a href="{% url 'calendar' %}" class="btn btn-outline-secondary rounded-pill mt-2">Go to Events  <i class="ml-3 far fa-calendar-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </main>
+        </div>
+        </section>
+    
+    
+
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col">
             <div class="card h-100">
                 <img src="{% static 'bulletin/images/presentation.jpg' %}" class="card-img-top" alt="Presentation">
                 <div class="card-body">
-                    <h5 class="card-title">Presentation</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
-                    <a href="#" class="btn btn-dark">Read more</a>
+                    <h5 class="card-title">About College</h5>
+                    <p class="card-text">Our college is a hub of academic excellence and innovation, committed to nurturing future leaders. With state-of-the-art facilities, experienced faculty, and a vibrant campus life, we provide a holistic learning experience that prepares students for global challenges.</p>
+                    <a href="about/" class="btn btn-dark">Read more</a>
                 </div>
             </div>
         </div>
         <div class="col">
             <div class="card h-100">
-                <img src="{% static 'bulletin/images/cultural.png' %}" class="card-img-top" alt="Cultural Event">
+                <img src="{% static 'bulletin/images/cultural2.jpg' %}" class="card-img-top" alt="Cultural Event">
                 <div class="card-body">
                     <h5 class="card-title">Cultural Event</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
-                    <a href="#" class="btn btn-dark">Read more</a>
+                    <p class="card-text">Our cultural events celebrate diversity and creativity, offering students a platform to showcase their talents. From music and dance performances to art exhibitions and literary fests, these events foster a vibrant and inclusive community spirit</p>
+                    <a href="cultural/" class="btn btn-dark">Read more</a>
                 </div>
             </div>
         </div>
@@ -32,8 +60,8 @@
                 <img src="{% static 'bulletin/images/Placement.jpg' %}" class="card-img-top" alt="Placement">
                 <div class="card-body">
                     <h5 class="card-title">Placement</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
-                    <a href="#" class="btn btn-dark">Read more</a>
+                    <p class="card-text">Our placement cell connects students with leading organizations, offering a gateway to promising careers. With dedicated training programs, workshops, and career counseling, we ensure our students are industry-ready and excel in their chosen fields.</p>
+                    <a href="placements/" class="btn btn-dark">Read more</a>
                 </div>
             </div>
         </div>
@@ -42,8 +70,8 @@
                 <img src="{% static 'bulletin/images/sportss.jpeg' %}" class="card-img-top" alt="Sports Event">
                 <div class="card-body">
                     <h5 class="card-title">Sports Event</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
-                    <a href="#" class="btn btn-dark">Read more</a>
+                    <p class="card-text">Sports events at our college promote teamwork, fitness, and sportsmanship. With a range of indoor and outdoor games, these events inspire students to stay active, build resilience, and achieve excellence on and off the field.</p>
+                    <a href="sports/" class="btn btn-dark">Read more</a>
                 </div>
             </div>
         </div>
@@ -52,8 +80,8 @@
                 <img src="{% static 'bulletin/images/habba.jpeg' %}" class="card-img-top" alt="Habba Event">
                 <div class="card-body">
                     <h5 class="card-title">Habba Event</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
-                    <a href="#" class="btn btn-dark">Read more</a>
+                    <p class="card-text">The Habba event is the most awaited annual festival, combining culture, fun, and excitement. It features a blend of performances, competitions, and food stalls, making it a grand celebration of talent and camaraderie</p>
+                    <a href="habba/" class="btn btn-dark">Read more</a>
                 </div>
             </div>
         </div>
@@ -62,8 +90,8 @@
                 <img src="{% static 'bulletin/images/steigen.jpeg' %}" class="card-img-top" alt="Technical Event">
                 <div class="card-body">
                     <h5 class="card-title">Technical Event</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
-                    <a href="#" class="btn btn-dark">Read more</a>
+                    <p class="card-text">Technical events at our college encourage innovation and problem-solving. From hackathons and coding competitions to robotics and tech talks, these events provide students with opportunities to enhance their skills and showcase their expertise.</p>
+                    <a href="technical/" class="btn btn-dark">Read more</a>
                 </div>
             </div>
         </div>

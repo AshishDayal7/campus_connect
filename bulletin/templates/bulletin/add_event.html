@@ -1,78 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Add New Event</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f5f5f5;
-        }
-        .add-event-form {
-            width: 50%;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: white;
-        }
-        .add-event-form input, .add-event-form button {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        background-color: #f5f5f5;
+      }
+      .add-event-form {
+        width: 50%;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+      }
+      .add-event-form input,
+      .add-event-form button,
+      .add-event-form select {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      .back-to-calendar {
+        text-align: center;
+        margin-top: 20px;
+      }
+      .back-to-calendar a {
+        text-decoration: none;
+        color: #007bff;
+      }
+      .event-list {
+        width: 50%;
+        background-color: white;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+      }
+      .event-item {
+        border-bottom: 1px solid #ccc;
+        padding: 10px 0;
+      }
+      .event-item:last-child {
+        border-bottom: none;
+      }
+      .event-item h3 {
+        margin: 0;
+        font-size: 1.2em;
+      }
+      .event-item p {
+        margin: 5px 0;
+      }
+      .event-item button {
+        padding: 5px 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      .event-item button:hover {
+        background-color: #0056b3;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="add-event-form">
-        <h2>Add New Event</h2>
-        <form id="eventForm">
-            <input type="text" id="eventTitle" placeholder="Event Title" required>
-            <input type="datetime-local" id="eventStart" placeholder="Start Date" required>
-            <input type="datetime-local" id="eventEnd" placeholder="End Date" required>
-            <button type="submit">Add Event</button>
-        </form>
-        <div style="text-align: center; margin-top: 20px;">
-            <a href="{% url 'calendar' %}">Back to Calendar</a>
+      <h2>Add New Event</h2>
+      <form id="eventForm">
+        <input type="text" id="eventTitle" placeholder="Event Title" required />
+        <input
+          type="datetime-local"
+          id="eventStart"
+          placeholder="Start Date and Time"
+          required
+        />
+        <input
+          type="datetime-local"
+          id="eventEnd"
+          placeholder="End Date and Time"
+          required
+        />
+        <div class="form-group">
+          <label for="event-category">Event Category</label>
+          <select id="event-category" name="event-category">
+            <option value="cultural">Cultural</option>
+            <option value="technical">Technical</option>
+            <option value="sports">Sports</option>
+            <option value="other">Other</option>
+          </select>
         </div>
+        <button type="submit">Add Event</button>
+      </form>
+      <div class="back-to-calendar">
+        <a href="{% url 'calendar' %}">Back to Calendar</a>
+      </div>
+    </div>
+    <div class="event-list" id="eventList">
+      <h2>Event List</h2>
     </div>
     <script>
-        document.getElementById('eventForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            var eventTitle = document.getElementById('eventTitle').value;
-            var eventStart = document.getElementById('eventStart').value;
-            var eventEnd = document.getElementById('eventEnd').value;
+      document
+        .getElementById("eventForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
 
-            if (eventTitle && eventStart && eventEnd) {
-                var newEvent = {
-                    title: eventTitle,
-                    start: eventStart,
-                    end: eventEnd
-                };
+          var eventTitle = document.getElementById("eventTitle").value;
+          var eventStart = document.getElementById("eventStart").value;
+          var eventEnd = document.getElementById("eventEnd").value;
+          var eventCategory = document.getElementById("event-category").value;
 
-                var events = JSON.parse(localStorage.getItem('events')) || [];
-                events.push(newEvent);
-                localStorage.setItem('events', JSON.stringify(events));
+          if (eventTitle && eventStart && eventEnd && eventCategory) {
+            var newEvent = {
+              title: eventTitle,
+              start: eventStart,
+              end: eventEnd,
+              category: eventCategory,
+            };
 
-                // Reset form fields
-                document.getElementById('eventTitle').value = '';
-                document.getElementById('eventStart').value = '';
-                document.getElementById('eventEnd').value = '';
-                
-                alert('Event added successfully!');
+            var events = JSON.parse(localStorage.getItem("events")) || [];
+            events.push(newEvent);
+            localStorage.setItem("events", JSON.stringify(events));
 
-                // Redirect back to the calendar page
-                window.location.href = "{% url 'calendar' %}";
+            // Reset form fields
+            document.getElementById("eventTitle").value = "";
+            document.getElementById("eventStart").value = "";
+            document.getElementById("eventEnd").value = "";
+            document.getElementById("event-category").value = "cultural";
 
-            }
+            alert("Event added successfully!");
+
+            // Refresh the event list
+            displayEvents();
+          }
         });
+
+      // Function to edit an event
+      function editEvent(index) {
+        var events = JSON.parse(localStorage.getItem("events")) || [];
+        var event = events[index];
+        document.getElementById("eventTitle").value = event.title;
+        document.getElementById("eventStart").value = event.start;
+        document.getElementById("eventEnd").value = event.end;
+        document.getElementById("event-category").value = event.category;
+
+        // Remove the event from the list to avoid duplication
+        events.splice(index, 1);
+        localStorage.setItem("events", JSON.stringify(events));
+
+        // Refresh the event list
+        displayEvents();
+      }
+
+      // Function to display events for editing
+      function displayEvents() {
+        var events = JSON.parse(localStorage.getItem("events")) || [];
+        var eventList = document.getElementById("eventList");
+        eventList.innerHTML = "<h2>Event List</h2>";
+
+        events.forEach((event, index) => {
+          var eventItem = document.createElement("div");
+          eventItem.className = "event-item";
+          eventItem.innerHTML = `
+                    <h3>${event.title}</h3>
+                    <p>Start: ${formatDateTime(event.start)}</p>
+                    <p>End: ${formatDateTime(event.end)}</p>
+                    <p>Category: ${event.category}</p>
+                    <button onclick="editEvent(${index})">Edit</button>
+                `;
+          eventList.appendChild(eventItem);
+        });
+      }
+
+      // Function to format date and time
+      function formatDateTime(dateTime) {
+        var options = {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+        };
+        return new Date(dateTime)
+          .toLocaleDateString("en-US", options)
+          .replace(",", " ");
+      }
+
+      // Display events on page load
+      window.onload = function () {
+        displayEvents();
+      };
     </script>
-</body>
+  </body>
 </html>
