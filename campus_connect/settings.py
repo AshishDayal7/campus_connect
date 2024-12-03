@@ -169,7 +169,10 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend', #using django backend
     'allauth.account.auth_backends.AuthenticationBackend',#also using allauth backend
 )
-
+# Add this new setting
+ACCOUNT_RATE_LIMITS = {
+    'login_failed': '5/300'  # 5 attempts per 300 seconds
+}
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587

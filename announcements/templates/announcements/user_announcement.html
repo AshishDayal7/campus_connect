@@ -1,0 +1,51 @@
+{% extends "announcements/base.html" %}
+{% block announcement %}
+<div class="row justify-content-center">
+    <div class="col-12">
+        <div class="card text-black shadow" style="border-radius: 25px;">
+            <div class="card-body p-md-5">
+                <h1 class="mb-3">Announcements by {{ view.kwargs.username }} ({{ page_obj.paginator.count }})</h1>
+                {% for announcement in announcements %}
+                    <article class="card mb-4 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="media content-section d-flex">
+                                <img class="rounded-circle me-3" src="{{ announcement.author.profile.image.url }}" style="width: 60px; height: 60px; object-fit: cover;">
+                                <div class="media-body">
+                                    <div class="article-metadata mb-2">
+                                        <a class="text-decoration-none" href="{% url 'user-announcement' announcement.author.username %}">{{ announcement.author }}</a>
+                                        <small class="text-muted ms-2">{{ announcement.date_posted|date:"F d, Y" }}</small>
+                                    </div>
+                                    <h2 class="h5"><a class="article-title text-decoration-none text-dark" href="{% url 'announcement-detail' announcement.id %}">{{ announcement.title }}</a></h2>
+                                    <p class="article-content mb-0">{{ announcement.content }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                {% endfor %}
+
+                {% if is_paginated %}
+                    <div class="d-flex justify-content-center mt-4">
+                        {% if page_obj.has_previous %}
+                            <a class="btn btn-outline-info mx-1" href="?page=1">First</a>
+                            <a class="btn btn-outline-info mx-1" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                        {% endif %}
+
+                        {% for num in page_obj.paginator.page_range %}
+                            {% if page_obj.number == num %}
+                                <a class="btn btn-info mx-1" href="?page={{ num }}">{{ num }}</a>
+                            {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                                <a class="btn btn-outline-info mx-1" href="?page={{ num }}">{{ num }}</a>
+                            {% endif %}
+                        {% endfor %}
+
+                        {% if page_obj.has_next %}
+                            <a class="btn btn-outline-info mx-1" href="?page={{ page_obj.next_page_number }}">Next</a>
+                            <a class="btn btn-outline-info mx-1" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+                        {% endif %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock announcement %}

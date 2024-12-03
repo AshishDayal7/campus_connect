@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,get_object_or_404
 from .models import Announcement
 from .forms import ProfileUpdateForm,AnnouncementForm
 from django.contrib import messages
+from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin , UserPassesTestMixin
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ValidationError
@@ -37,6 +38,19 @@ class AnnouncementListView(ListView):
     template_name= 'announcements/a_home.html'
     context_object_name='announcements'
     ordering=['-date_posted']
+    paginate_by = 5
+
+
+class UserAnnouncementListView(ListView):
+    model=Announcement
+    template_name= 'announcements/user_announcement.html'
+    context_object_name='announcements'
+    paginate_by = 5
+
+    def get_queryset(self):
+        user= get_object_or_404(User, username=self.kwargs.get('username'))
+        return Announcement.objects.filter(author=user).order_by('-date_posted')
+    
 
 class AnnouncementDetailView(DetailView):
     model=Announcement
