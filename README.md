@@ -41,22 +41,22 @@ To set up this project locally:
 Access the site locally at: http://127.0.0.1:8000
 
 <h3> Usage </h3>
-For Students
+For Students:
 Register and complete your profile.
 Browse available job opportunities.
 Apply to placements and track application status.
 
-For Recruiters
+For Recruiters: 
 Register your company.
 Post job opportunities and manage applications.
 Schedule interviews and placement drives.
 
-For Admins
+For Admins: 
 Manage user accounts and roles.
 Generate and review placement reports.
 Monitor platform activity.
 
-Contributing
+Contributing:
 Contributions are welcome! Please follow these steps:
 
 Fork the repository.
