@@ -1,5 +1,5 @@
 <h1> CampusConnect </h1>
-CampusConnect is a dynamic platform designed to streamline college campus placement activities. The website serves as a centralized hub for students, faculty, and recruiters to manage, track, and enhance placement-related interactions.
+CampusConnect is a dynamic platform designed to streamline college campus placement activities. The website serves as a centralized hub for students, faculty, and recruiters to manage, track, and enhance placement-related interactions and many more activities. 
 
 <h3> Features </h3>
 Student Profiles: Create and manage student placement profiles with academic and personal details.
