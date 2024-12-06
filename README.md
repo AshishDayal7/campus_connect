@@ -25,7 +25,7 @@ Hosting: PythonAnywhere
 
 To set up this project locally:
   Clone the repository:
-    git clone https://github.com/your-repo-link.git
+    git clone (https://github.com/chaitra-adiga/campus_connect)
     cd campusconnect
   Install dependencies:
 
