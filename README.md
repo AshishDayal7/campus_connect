@@ -137,7 +137,6 @@ For any questions or support, please contact [itsca03@gmail.com](mailto:itsca03@
 ---
 
 Enjoy using **Campus Connect**! 🎉
-```
 
 This README file includes an overview of the project, features, setup instructions, and deployment steps, all formatted with emojis for better readability and engagement.This README file includes an overview of the project, features, setup instructions, and deployment steps, all formatted with emojis for better readability and engagement.
 
