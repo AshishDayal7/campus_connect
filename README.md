@@ -7,8 +7,8 @@ Welcome to **Campus Connect**, a comprehensive platform designed to streamline c
 
 # 🌟 Features
 
-- 📢 **Announcements**: Post and view campus-wide announcements.Which gets auto delete in 14 days automatically . So that your space is utilised properly.
-- 📄 **Pagination**: Efficiently navigate through lists of announcements as in one page only 5 posts are shown , also if you click on username - you get all the announcements that user made which is paginated too .
+- 📢 **Announcements**: Post and view campus-wide announcements.Which gets auto deleted in 14 days automatically. So that your space is utilised properly.
+- 📄 **Pagination**: Efficiently navigate through lists of announcements as in one page only 5 posts are shown, also if you click on username - you get all the announcements that user made which is paginated too.
 - 🎉 **Events**: Create and manage campus events- View via calender what events are there and you can schedule one too with categories of cultural/technical/sports/other types.
 - 🌐 **Google Login**: One Tap Easy login/Sign up with Google integration.
 - 🔒 **User Authentication**: Secure login and registration using Django AllAuth.
@@ -138,5 +138,5 @@ For any questions or support, please contact [itsca03@gmail.com](mailto:itsca03@
 
 Enjoy using **Campus Connect**! 🎉
 
-This README file includes an overview of the project, features, setup instructions, and deployment steps, all formatted with emojis for better readability and engagement.This README file includes an overview of the project, features, setup instructions, and deployment steps, all formatted with emojis for better readability and engagement.
+This README file includes an overview of the project, features, setup instructions, and deployment steps.
 
