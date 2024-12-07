@@ -63,11 +63,7 @@ Follow these steps to set up the project on your local machine:
      python manage.py migrate
      ```
 
-5. **Create a 
-
-.env
-
- file**:
+5. **Create a .env file**:
    ```plaintext
    EMAIL_HOST_USER=your-email@gmail.com
    EMAIL_HOST_PASSWORD=your-app-password
