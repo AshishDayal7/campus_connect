@@ -13,8 +13,6 @@ out/
 .env
 .env.local
 
-
-
 # Ignore OS-specific files
 .DS_Store
 Thumbs.db
@@ -34,9 +32,6 @@ coverage/
 # Ignore temporary files
 *.tmp
 *.swp
-
-# Ignore client secret file
-client_secret_286034055187-obobc9opadhrimr9ls3tb7ohssh3psse.apps.googleusercontent.com.json
 
 # Media files
 media/
